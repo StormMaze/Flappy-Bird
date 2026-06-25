@@ -6,7 +6,7 @@ A scratch C++ recreation of Flappy Bird, with one twist most clones skip: pipes 
 
 ## Overview
 
-Classic rules i.e gravity constantly pulls the bird down, you tap Space to flap upward, and you're trying to slip through pipe gaps without clipping the top or bottom. Where this version differs from a basic tutorial clone is the difficulty system: on Medium and Hard, pipe gaps don't just get smaller and they oscillate up and down on a sine wave while scrolling toward you, so timing your flap becomes a moving target instead of a fixed one.
+Classic rules i.e gravity constantly pulls the bird down, you tap Space to flap upward and you're trying to slip through pipe gaps without clipping the top or bottom. Where this version differs from a basic tutorial clone is the difficulty system: on Medium and Hard, pipe gaps don't just get smaller and they oscillate up and down on a sine wave while scrolling toward you, so timing your flap becomes a moving target instead of a fixed one.
 
 High scores are saved to disk (`highscore.txt`) and reloaded on launch, so progress actually persists between sessions.
 
@@ -18,7 +18,7 @@ High scores are saved to disk (`highscore.txt`) and reloaded on launch, so progr
   - **Easy** — large static gap, no movement
   - **Medium** — smaller gap, gentle vertical drift
   - **Hard** — tight gap, faster and wider oscillation
-- **Per-pipe motion variance** — each pipe gets a randomized phase, speed, and amplitude for its sine-wave movement, so no two runs feel identical
+- **Per-pipe motion variance** — each pipe gets a randomized phase, speed and amplitude for its sine wave movement, so no two runs feel identical
 - **Persistent high score** — written to and read from `highscore.txt` via simple file I/O
 - **Forgiving hitbox margin** — collision rectangles are trimmed in from the sprite's visual bounds so near misses don't feel unfair
 - **Menu → Playing state machine** driven by a single `GameState` enum, keeping input handling and rendering logic cleanly separated by state
@@ -36,14 +36,14 @@ High scores are saved to disk (`highscore.txt`) and reloaded on launch, so progr
 - A C++17-capable compiler
 - [SFML](https://www.sfml-dev.org/download.php) (2.5+) installed and linkable
 
-### Build (Linux/macOS, g++)
+### Build (Linux, g++)
 
 ```bash
 g++ q2.cpp -o FlappyBird -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 ./FlappyBird
 ```
 
-Run it from the project root so it can find `graphics/`, `sound/`, and `highscore.txt` via their relative paths.
+Run it from the project root so it can find `graphics/`, `sound/` and `highscore.txt` via their relative paths.
 
 A prebuilt Linux binary (`game2`) is also included in the repo if you just want to run it without compiling.
 
